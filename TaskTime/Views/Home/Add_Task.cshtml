@@ -1,3 +1,48 @@
 ﻿@{
     ViewData["Title"] = "Add a Task";
 }
+@model ApplicationResponse
+
+<h1>
+    Please add your task and information about it
+</h1>
+
+<div>
+    <form method="post">
+        <div asp-validation-summary="All">
+            <label asp-for="Task">Task Name: </label>
+            <input asp-for="Task" />
+            <br />
+
+            <label asp-for="DueDate">Due Date: </label>
+            <input asp-for="DueDate" />
+            <br />
+
+            <label asp-for="Quadrant">Quadrant: </label>
+            <select>
+                <option value="">Select</option>
+                @foreach (Category C in ViewBag.Categories)
+                {
+                    <option value="@C.CategoryId">@C.CategoryName</option>
+                }
+            </select>
+            <br />
+
+            <label asp-for="Category">Category: </label>
+            <select>
+                <option value="">Select</option>
+
+            </select>
+            <br />
+
+            <label asp-for="Completed">Completed Task? </label>
+            <select>
+                <option value="">Select</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <br />
+
+        </div>
+    </form>
+</div>

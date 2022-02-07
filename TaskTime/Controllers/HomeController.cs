@@ -20,6 +20,11 @@ namespace TaskTime.Controllers
             _taskContext = taskContext;
 
         }
+        private TaskContext TaskContext { get; set; }
+        public HomeController(TaskContext x)
+        {
+            TaskContext = x;
+        }
 
         public IActionResult Index()
         {
@@ -32,33 +37,33 @@ namespace TaskTime.Controllers
         }
 
         [HttpGet]
+        public IActionResult TaskList()
+        {
+            var Tasks = TaskContext.Responses
+                .Include(x => x.Category)
+                .Where(x=> x.Completed == false)
+                .ToList();
+
+            return View(Tasks);
+        }
+        [HttpGet]
         public IActionResult Add_Task()
         {
-            ViewBag.categories = _taskContext.Categories.ToList();
+            ViewBag.Categories = TaskContext.Categories.ToList();
+
             return View();
         }
-
         [HttpPost]
-        public IActionResult Add_Task(ApplicationResponse appResponse)
+        public IActionResult Add_Task(ApplicationResponse ar)
         {
-            if (ModelState.IsValid)
-            {
-                _taskContext.Update(appResponse);
-                _taskContext.SaveChanges();
-                return View("Quadrants");
-            }
-            ViewBag.categories = _taskContext.Categories.ToList();
-            return View("Add_Task");
+            TaskContext.add(ar);
+            TaskContext.savechanges();
+            return RedirectToAction("TaskList");
         }
-
 
         public IActionResult Quadrants()
         {
-            var tasks = _taskContext.Responses
-                .Include(x => x.Category)
-                .OrderBy(x => x.DueDate)
-                .ToList();
-            return View(tasks);
+            return View();
         }
 
         [HttpPost]
@@ -67,7 +72,7 @@ namespace TaskTime.Controllers
             _taskContext.Update(task);
             _taskContext.SaveChanges();
 
-            return RedirectToAction("Quadrants");
+            return RedirectToAction("TaskList");
         }
 
         [HttpGet]
@@ -82,7 +87,7 @@ namespace TaskTime.Controllers
         {
             _taskContext.Responses.Remove(_taskContext.Responses.Single(x => x.AppResponseId == taskid));
             _taskContext.SaveChanges();
-            return RedirectToAction("Quadrants");
+            return RedirectToAction("TaskList");
         }
 
 
