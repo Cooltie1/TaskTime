@@ -9,7 +9,7 @@ namespace TaskTime.Models
     public class TaskContext : DbContext
     {
         //Constructor
-        public TaskContext(DbContextOptions<DbContext> options) : base(options)
+        public TaskContext(DbContextOptions<TaskContext> options) : base(options)
         {
             //Leave blank for now
         }
