@@ -27,6 +27,14 @@ namespace TaskTime.Controllers
         {
             return View();
         }
+        public IActionResult Add_Task()
+        {
+            return View();
+        }
+        public IActionResult Quadrants()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
