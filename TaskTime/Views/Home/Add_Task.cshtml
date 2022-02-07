@@ -1,3 +1,46 @@
 ﻿@{
     ViewData["Title"] = "Add a Task";
 }
+
+
+<h1>
+    Please add your task and information about it
+</h1>
+
+<div>
+    <form method="post">
+        <div asp-validation-summary="All">
+            <label asp-for="Task">Task Name: </label>
+            <input asp-for="Task" />
+            <br />
+
+            <label asp-for="Due_Date">Due Date: </label>
+            <input asp-for="Due_Date" />
+            <br />
+
+            <label asp-for="Quadrant">Quadrant: </label>
+            <select>
+                <option value="">Select</option>
+                @foreach quadrant in Quadrants
+                    <option value="@quadrant>@quadrant</option>
+            </select>
+            <br />
+
+            <label asp-for="Category">Category: </label>
+            <select>
+                <option value="">Select</option>
+
+            </select>
+            <br />
+
+            <label asp-for="Completed">Completed Task? </label>
+            <select>
+                <option value="">Select</option>
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+            </select>
+            <br />
+
+        </div>
+    </form>
+</div>
