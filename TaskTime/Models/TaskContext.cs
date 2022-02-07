@@ -46,5 +46,15 @@ namespace TaskTime.Models
                 }
             );
         }
+
+        internal static void savechanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void add(ApplicationResponse ar)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

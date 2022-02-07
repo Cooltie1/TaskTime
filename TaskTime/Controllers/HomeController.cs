@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,11 @@ namespace TaskTime.Controllers
         {
             _logger = logger;
         }
+        private TaskContext TaskContext { get; set; }
+        public HomeController(TaskContext x)
+        {
+            TaskContext = x;
+        }
 
         public IActionResult Index()
         {
@@ -27,10 +33,31 @@ namespace TaskTime.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult TaskList()
+        {
+            var Tasks = TaskContext.Responses
+                .Include(x => x.Category)
+                .Where(x=> x.Completed == false)
+                .ToList();
+
+            return View(Tasks);
+        }
+        [HttpGet]
         public IActionResult Add_Task()
         {
+            ViewBag.Categories = TaskContext.Categories.ToList();
+
             return View();
         }
+        [HttpPost]
+        public IActionResult Add_Task(ApplicationResponse ar)
+        {
+            TaskContext.add(ar);
+            TaskContext.savechanges();
+            return RedirectToAction("TaskList");
+        }
+
         public IActionResult Quadrants()
         {
             return View();
