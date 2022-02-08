@@ -59,9 +59,9 @@ namespace TaskTime.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit (ApplicationResponse task)
+        public IActionResult Edit (ApplicationResponse ar)
         {
-            _taskContext.Update(task);
+            _taskContext.Update(ar);
             _taskContext.SaveChanges();
 
             return RedirectToAction("TaskList");
