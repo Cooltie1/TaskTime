@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "View Tasks";
+}
+
+@model List<ApplicationResponse>
+
+<h1>Here is your list of tasks. Please edit, and mark completed when you have completed the task.</h1>
+<br /><br /><br />
+<table class="table table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Task</td>
+            <td>Due Date</td>
+            <td>Quadrant</td>
+            <td>Category</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+            {
+             <tr>
+                <td>@x.Task</td>
+                <td>@x.DueDate</td>
+                <td>@x.Quadrant</td>
+                <td>@x.Category</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            }
+    </tbody>
+</table>

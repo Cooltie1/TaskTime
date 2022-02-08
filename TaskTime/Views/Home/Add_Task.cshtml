@@ -21,17 +21,21 @@
             <label asp-for="Quadrant">Quadrant: </label>
             <select>
                 <option value="">Select</option>
-                @foreach (Category C in ViewBag.Categories)
-                {
-                    <option value="@C.CategoryId">@C.CategoryName</option>
-                }
+                <option value="Quadrant I">Quadrant 1</option>
+                <option value="Quadrant II">Quadrant 2</option>
+                <option value="Quadrant III">Quadrant 3</option>
+                <option value="Quadrant IV">Quadrant 4</option>
+
             </select>
             <br />
 
             <label asp-for="Category">Category: </label>
             <select>
                 <option value="">Select</option>
-
+                @foreach (Category C in ViewBag.Categories)
+                {
+                    <option value="@C.CategoryId">@C.CategoryName</option>
+                }
             </select>
             <br />
 

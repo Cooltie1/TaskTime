@@ -12,18 +12,10 @@ namespace TaskTime.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private TaskContext _taskContext { get; set; }
-        public HomeController(ILogger<HomeController> logger, TaskContext taskContext)
+        public HomeController( TaskContext taskContext)
         {
-            _logger = logger;
             _taskContext = taskContext;
-
-        }
-        private TaskContext TaskContext { get; set; }
-        public HomeController(TaskContext x)
-        {
-            TaskContext = x;
         }
 
         public IActionResult Index()
@@ -31,15 +23,10 @@ namespace TaskTime.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult TaskList()
         {
-            var Tasks = TaskContext.Responses
+            var Tasks = _taskContext.Responses
                 .Include(x => x.Category)
                 .Where(x=> x.Completed == false)
                 .ToList();
@@ -49,20 +36,25 @@ namespace TaskTime.Controllers
         [HttpGet]
         public IActionResult Add_Task()
         {
-            ViewBag.Categories = TaskContext.Categories.ToList();
+            ViewBag.Categories = _taskContext.Categories.ToList();
 
             return View();
         }
         [HttpPost]
         public IActionResult Add_Task(ApplicationResponse ar)
         {
-            TaskContext.add(ar);
-            TaskContext.savechanges();
+            _taskContext.Add(ar);
+            _taskContext.SaveChanges();
             return RedirectToAction("TaskList");
         }
 
         public IActionResult Quadrants()
         {
+            return View();
+        }
+        public IActionResult ViewTasks()
+        {
+            ViewBag.Categories = _taskContext.Categories.ToList();
             return View();
         }
 
@@ -90,11 +82,5 @@ namespace TaskTime.Controllers
             return RedirectToAction("TaskList");
         }
 
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
