@@ -10,13 +10,13 @@ namespace TaskTime.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    CategoryId = table.Column<int>(nullable: false)
+                    CategoryID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CategoryName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
+                    table.PrimaryKey("PK_Categories", x => x.CategoryID);
                 });
 
             migrationBuilder.CreateTable(
@@ -38,34 +38,39 @@ namespace TaskTime.Migrations
                         name: "FK_Responses_Categories_CategoryID",
                         column: x => x.CategoryID,
                         principalTable: "Categories",
-                        principalColumn: "CategoryId",
+                        principalColumn: "CategoryID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "CategoryId", "CategoryName" },
+                columns: new[] { "CategoryID", "CategoryName" },
                 values: new object[] { 1, "Home" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "CategoryId", "CategoryName" },
+                columns: new[] { "CategoryID", "CategoryName" },
                 values: new object[] { 2, "School" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "CategoryId", "CategoryName" },
+                columns: new[] { "CategoryID", "CategoryName" },
                 values: new object[] { 3, "Work" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "CategoryId", "CategoryName" },
+                columns: new[] { "CategoryID", "CategoryName" },
                 values: new object[] { 4, "Church" });
 
             migrationBuilder.InsertData(
                 table: "Responses",
                 columns: new[] { "AppResponseId", "CategoryID", "Completed", "DueDate", "Quadrant", "Task" },
                 values: new object[] { 1, 1, false, "Feb 8th", "Quadrant III", "Eat Breakfast" });
+
+            migrationBuilder.InsertData(
+                table: "Responses",
+                columns: new[] { "AppResponseId", "CategoryID", "Completed", "DueDate", "Quadrant", "Task" },
+                values: new object[] { 2, 2, false, "Feb 8th", "Quadrant III", "Make bed" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Responses_CategoryID",

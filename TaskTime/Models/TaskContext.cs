@@ -23,13 +23,13 @@ namespace TaskTime.Models
             // seed the four categories (Home, School, Work, Church) into the categories table
             mb.Entity<Category>().HasData(
                 new Category
-                { CategoryId = 1, CategoryName = "Home"  },
+                { CategoryID = 1, CategoryName = "Home"  },
                 new Category
-                { CategoryId = 2, CategoryName = "School" },
+                { CategoryID = 2, CategoryName = "School" },
                 new Category
-                { CategoryId = 3, CategoryName = "Work" },
+                { CategoryID = 3, CategoryName = "Work" },
                 new Category
-                { CategoryId = 4, CategoryName = "Church" }
+                { CategoryID = 4, CategoryName = "Church" }
                 );
 
             // Seed initial response
@@ -39,6 +39,16 @@ namespace TaskTime.Models
                     AppResponseId = 1,
                     CategoryID = 1,
                     Task = "Eat Breakfast",
+                    DueDate = "Feb 8th",
+                    Quadrant = "Quadrant III",
+                    Completed = false
+
+                },
+                new ApplicationResponse
+                {
+                    AppResponseId = 2,
+                    CategoryID = 2,
+                    Task = "Make bed",
                     DueDate = "Feb 8th",
                     Quadrant = "Quadrant III",
                     Completed = false

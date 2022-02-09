@@ -29,12 +29,12 @@
             </select>
             <br />
 
-            <label asp-for="Category">Category: </label>
-            <select asp-for="Category">
+            <label asp-for="CategoryID">Category: </label>
+            <select asp-for="CategoryID">
                 <option value="">Select</option>
                 @foreach (Category C in ViewBag.Categories)
                 {
-                    <option value="@C.CategoryId">@C.CategoryName</option>
+                    <option value="@C.CategoryID">@C.CategoryName</option>
                 }
             </select>
             <br />
