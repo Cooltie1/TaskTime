@@ -39,9 +39,14 @@ namespace TaskTime.Controllers
         [HttpPost]
         public IActionResult Add_Task(ApplicationResponse ar)
         {
-            _taskContext.Add(ar);
-            _taskContext.SaveChanges();
-            return View("ViewTasks");
+            if (ModelState.IsValid)
+            {
+                _taskContext.Add(ar);
+                _taskContext.SaveChanges();
+                return View("ViewTasks");
+            }
+            ViewBag.categories = _taskContext.Categories.ToList();
+            return View("Add_Task");
         }
 
 
