@@ -11,8 +11,9 @@
 
 
 <div class="row-fluid">
-    <div class="col-12">
+    <div class="col-12 center">
         <h1>Stephen Covey's Time Management Matrix</h1>
+        <br />
     </div>
 </div>
 
@@ -49,8 +50,8 @@
 @*We will take this off later
     for now, it's just to visualize (:*@
                 <ul>Completed: @x.Completed</ul>
-                <ul><a asp-controller="Home" asp-action="Edit" asp-route-movie="@x.AppResponseId">Edit</a></ul>
-                <ul><a asp-controller="Home" asp-action="Delete" asp-route-movie="@x.AppResponseId">Delete</a></ul>
+                <ul><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></ul>
+                <ul><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></ul>
                 <br /><br />
             }
         }
@@ -69,8 +70,8 @@
                 <ul>@x.Quadrant</ul>
                 <ul>Category: @x.Category</ul>
                 <ul>Completed: @x.Completed</ul>
-                <ul><a asp-controller="Home" asp-action="Edit" asp-route-movie="@x.AppResponseId">Edit</a></ul>
-                <ul><a asp-controller="Home" asp-action="Delete" asp-route-movie="@x.AppResponseId">Delete</a></ul>
+                <ul><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></ul>
+                <ul><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></ul>
                 <br /><br />
             }
         }
@@ -97,8 +98,8 @@
                 <ul>@x.Quadrant</ul>
                 <ul>Category: @x.Category</ul>
                 <ul>Completed: @x.Completed</ul>
-                <ul><a asp-controller="Home" asp-action="Edit" asp-route-movie="@x.AppResponseId">Edit</a></ul>
-                <ul><a asp-controller="Home" asp-action="Delete" asp-route-movie="@x.AppResponseId">Delete</a></ul>
+                <ul><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></ul>
+                <ul><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></ul>
                 <br /><br />
             }
         }
@@ -117,8 +118,8 @@
                 <ul>@x.Quadrant</ul>
                 <ul>Category: @x.Category</ul>
                 <ul>Completed: @x.Completed</ul>
-                <ul><a asp-controller="Home" asp-action="Edit" asp-route-movie="@x.AppResponseId">Edit</a></ul>
-                <ul><a asp-controller="Home" asp-action="Delete" asp-route-movie="@x.AppResponseId">Delete</a></ul>
+                <ul><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></ul>
+                <ul><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></ul>
                 <br /><br />
             }
         }
@@ -153,8 +154,8 @@
                 <td>@x.Quadrant</td>
                 <td>@x.Category</td>
                 <td>@x.Completed</td>
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-movie="@x.AppResponseId">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-movie="@x.AppResponseId">Delete</a></td>
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></td>
             </tr>
         }
     </tbody>
