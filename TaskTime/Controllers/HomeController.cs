@@ -45,7 +45,7 @@ namespace TaskTime.Controllers
                 _taskContext.SaveChanges();
                 return View("ViewTasks");
             }
-            ViewBag.categories = _taskContext.Categories.ToList();
+            ViewBag.Categories = _taskContext.Categories.ToList();
             return View("Add_Task");
         }
 
