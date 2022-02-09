@@ -78,10 +78,11 @@ namespace TaskTime.Controllers
         [HttpPost]
         public IActionResult Edit (ApplicationResponse ar)
         {
+            
             _taskContext.Update(ar);
             _taskContext.SaveChanges();
 
-            return RedirectToAction("TaskList");
+            return RedirectToAction("ViewTasks");
         }
 
        
@@ -91,7 +92,7 @@ namespace TaskTime.Controllers
         {
             _taskContext.Responses.Remove(_taskContext.Responses.Single(x => x.AppResponseId == taskid));
             _taskContext.SaveChanges();
-            return RedirectToAction("TaskList");
+            return RedirectToAction("ViewTasks");
         }
 
     }
