@@ -41,7 +41,7 @@
 
         @foreach (var x in Model)
         {
-            if (@x.Quadrant == "Quadrant I")
+            if (@x.Quadrant == "Quadrant I" && @x.Completed == false)
             {
                 <p style="font-weight:bold">@x.Task</p>
                 <p>Due date: @x.DueDate</p>
@@ -58,7 +58,7 @@
 
         @foreach (var x in Model)
         {
-            if (@x.Quadrant == "Quadrant II")
+            if (@x.Quadrant == "Quadrant II" && @x.Completed == false)
             {
                 <p style="font-weight:bold">@x.Task</p>
                 <p>Due date: @x.DueDate</p>
@@ -83,7 +83,7 @@
 
         @foreach (var x in Model)
         {
-            if (@x.Quadrant == "Quadrant III")
+            if (@x.Quadrant == "Quadrant III" && @x.Completed == false)
             {            
                 <p style="font-weight:bold">@x.Task</p>
                 <p>Due date: @x.DueDate</p>
@@ -100,7 +100,7 @@
 
         @foreach (var x in Model)
         {
-            if (@x.Quadrant == "Quadrant IV")
+            if (@x.Quadrant == "Quadrant IV" && @x.Completed == false)
             {
                 <p style="font-weight:bold">@x.Task</p>
                 <p>Due date: @x.DueDate</p>
@@ -113,12 +113,8 @@
     </div>
 </div>
 
-<br />
-<br />
-<br />
-<br />
 
-<h1>This is just for us to visualize the data for now</h1>
+@*<h1>This is just for us to visualize the data for now</h1>
 <table class="table table-bordered table-striped">
     <thead class="font-weight-bold">
         <tr>
@@ -145,4 +141,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@
