@@ -8,7 +8,7 @@ using TaskTime.Models;
 namespace TaskTime.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20220207234604_Initial")]
+    [Migration("20220209170247_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,41 +55,50 @@ namespace TaskTime.Migrations
                             DueDate = "Feb 8th",
                             Quadrant = "Quadrant III",
                             Task = "Eat Breakfast"
+                        },
+                        new
+                        {
+                            AppResponseId = 2,
+                            CategoryID = 2,
+                            Completed = false,
+                            DueDate = "Feb 8th",
+                            Quadrant = "Quadrant III",
+                            Task = "Make bed"
                         });
                 });
 
             modelBuilder.Entity("TaskTime.Models.Category", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("CategoryID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CategoryName")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("CategoryId");
+                    b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
-                            CategoryId = 1,
+                            CategoryID = 1,
                             CategoryName = "Home"
                         },
                         new
                         {
-                            CategoryId = 2,
+                            CategoryID = 2,
                             CategoryName = "School"
                         },
                         new
                         {
-                            CategoryId = 3,
+                            CategoryID = 3,
                             CategoryName = "Work"
                         },
                         new
                         {
-                            CategoryId = 4,
+                            CategoryID = 4,
                             CategoryName = "Church"
                         });
                 });
