@@ -18,21 +18,16 @@ namespace TaskTime.Controllers
             _taskContext = taskContext;
         }
 
+        //gets the index page
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpGet]
-        public IActionResult TaskList()
-        {
-            var Tasks = _taskContext.Responses
-                .Include(x => x.Category)
-                .Where(x=> x.Completed == false)
-                .ToList();
 
-            return View(Tasks);
-        }
+        
+
+        //CREATE
         [HttpGet]
         public IActionResult Add_Task()
         {
@@ -40,23 +35,45 @@ namespace TaskTime.Controllers
 
             return View();
         }
+
         [HttpPost]
         public IActionResult Add_Task(ApplicationResponse ar)
         {
             _taskContext.Add(ar);
             _taskContext.SaveChanges();
-            return RedirectToAction("TaskList");
+            return View("ViewTasks");
         }
 
-        public IActionResult Quadrants()
-        {
-            return View();
-        }
+
+
+        //READ
+
+
+        [HttpGet]
         public IActionResult ViewTasks()
         {
             ViewBag.Categories = _taskContext.Categories.ToList();
-            return View();
+
+            var application = _taskContext.Responses
+                .Include(x => x.Category)
+                .Where(x => x.Completed == false)
+                .OrderBy(x => x.Task)
+                .ToList();
+
+            return View(application);
+            //return View();
         }
+
+
+        //EDIT
+        [HttpGet]
+        public IActionResult Edit(int taskid)
+        {
+            ViewBag.categories = _taskContext.Categories.ToList();
+            var task = _taskContext.Responses.Single(x => x.AppResponseId == taskid);
+            return View("Add_Task", task);
+        }
+
 
         [HttpPost]
         public IActionResult Edit (ApplicationResponse ar)
@@ -67,14 +84,9 @@ namespace TaskTime.Controllers
             return RedirectToAction("TaskList");
         }
 
-        [HttpGet]
-        public IActionResult Edit(int taskid)
-        {
-            ViewBag.categories = _taskContext.Categories.ToList();
-            var task = _taskContext.Responses.Single(x => x.AppResponseId == taskid);
-            return View("Add_Task", task);
-        }
+       
 
+        //DELETE
         public IActionResult Delete(int taskid)
         {
             _taskContext.Responses.Remove(_taskContext.Responses.Single(x => x.AppResponseId == taskid));
