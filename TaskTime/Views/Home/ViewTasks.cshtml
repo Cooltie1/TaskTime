@@ -21,11 +21,11 @@
 
 <div class="row">
     <div class="col-2 border-between"></div>
-    <div class="col-5">
-        <h3>Urgent</h3>
+    <div class="col-5 center">
+        <h1>Urgent</h1>
     </div>
-    <div class="col-5">
-        <h3>Not Urgent</h3>
+    <div class="col-5 center">
+        <h1>Not Urgent</h1>
     </div>
 </div>
 
@@ -35,43 +35,35 @@
     <div class="col-2">
         <h2>IMPORTANT</h2>
     </div>
-    <div class="col-5">
-        <h3>Quadrant 1</h3>
+    <div class="col-5 center">
+        <h4>Quadrant 1</h4>
         <br />
 
         @foreach (var x in Model)
         {
             if (@x.Quadrant == "Quadrant I")
             {
-                <ul style="font-weight:bold">Task:@x.Task</ul>
-                <ul>Due date: @x.DueDate</ul>
-                <ul>@x.Quadrant</ul>
-                <ul>Category: @x.Category</ul>
-@*We will take this off later
-    for now, it's just to visualize (:*@
-                <ul>Completed: @x.Completed</ul>
-                <ul><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></ul>
-                <ul><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></ul>
+                <p style="font-weight:bold">@x.Task</p>
+                <p>Due date: @x.DueDate</p>
+                <p><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></p>
+                <p><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></p>
                 <br /><br />
             }
         }
 
     </div>
-    <div class="col-5">
-        <h3>Quadrant 2</h3>
+    <div class="col-5 center">
+        <h4>Quadrant 2</h4>
         <br />
 
         @foreach (var x in Model)
         {
             if (@x.Quadrant == "Quadrant II")
             {
-                <ul style="font-weight:bold">Task:@x.Task</ul>
-                <ul>Due date: @x.DueDate</ul>
-                <ul>@x.Quadrant</ul>
-                <ul>Category: @x.Category</ul>
-                <ul>Completed: @x.Completed</ul>
-                <ul><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></ul>
-                <ul><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></ul>
+                <p style="font-weight:bold">@x.Task</p>
+                <p>Due date: @x.DueDate</p>
+                <p><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></p>
+                <p><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></p>
                 <br /><br />
             }
         }
@@ -85,41 +77,35 @@
     <div class="col-2">
         <h2>NOT IMPORTANT</h2>
     </div>
-    <div class="col-5">
-        <h3>Quadrant 3</h3>
+    <div class="col-5 center">
+        <h4>Quadrant 3</h4>
         <br />
 
         @foreach (var x in Model)
         {
             if (@x.Quadrant == "Quadrant III")
             {            
-                <ul style="font-weight:bold">Task:@x.Task</ul>
-                <ul>Due date: @x.DueDate</ul>
-                <ul>@x.Quadrant</ul>
-                <ul>Category: @x.Category</ul>
-                <ul>Completed: @x.Completed</ul>
-                <ul><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></ul>
-                <ul><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></ul>
+                <p style="font-weight:bold">@x.Task</p>
+                <p>Due date: @x.DueDate</p>
+                <p><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></p>
+                <p><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></p>
                 <br /><br />
             }
         }
         
     </div>
-    <div class="col-5">
-        <h3>Quadrant 4</h3>
+    <div class="col-5 center">
+        <h4>Quadrant 4</h4>
         <br />
 
         @foreach (var x in Model)
         {
             if (@x.Quadrant == "Quadrant IV")
             {
-                <ul style="font-weight:bold">Task:@x.Task</ul>
-                <ul>Due date: @x.DueDate</ul>
-                <ul>@x.Quadrant</ul>
-                <ul>Category: @x.Category</ul>
-                <ul>Completed: @x.Completed</ul>
-                <ul><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></ul>
-                <ul><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></ul>
+                <p style="font-weight:bold">@x.Task</p>
+                <p>Due date: @x.DueDate</p>
+                <p><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.AppResponseId">Edit</a></p>
+                <p><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppResponseId">Delete</a></p>
                 <br /><br />
             }
         }
