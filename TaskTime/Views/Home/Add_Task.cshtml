@@ -39,12 +39,12 @@
             </select>
             <br />
 
-            <label asp-for="Completed">Completed Task? </label>
-            <select asp-for="Completed">
-                <option value="">Select</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
+            <div class="form-check">
+                @Html.RadioButtonFor(model => model.Completed, true) Task Complete
+            </div>
+            <div class="form-check">
+                @Html.RadioButtonFor(model => model.Completed, false) Task Incomplete
+            </div>
             <br />
 
         </div>
