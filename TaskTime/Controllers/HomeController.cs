@@ -43,7 +43,7 @@ namespace TaskTime.Controllers
             {
                 _taskContext.Add(ar);
                 _taskContext.SaveChanges();
-                return View("ViewTasks");
+                return RedirectToAction("ViewTasks");
             }
             ViewBag.Categories = _taskContext.Categories.ToList();
             return View("Add_Task");
