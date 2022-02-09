@@ -61,7 +61,7 @@ namespace TaskTime.Controllers
 
             var application = _taskContext.Responses
                 .Include(x => x.Category)
-                .Where(x => x.Completed == false)
+                
                 .OrderBy(x => x.Task)
                 .ToList();
 
