@@ -33,7 +33,7 @@ namespace TaskTime.Controllers
         {
             ViewBag.Categories = _taskContext.Categories.ToList();
 
-            return View();
+            return View(new ApplicationResponse());
         }
 
         [HttpPost]
