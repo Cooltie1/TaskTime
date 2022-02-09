@@ -69,7 +69,7 @@ namespace TaskTime.Controllers
         [HttpGet]
         public IActionResult Edit(int taskid)
         {
-            ViewBag.categories = _taskContext.Categories.ToList();
+            ViewBag.Categories = _taskContext.Categories.ToList();
             var task = _taskContext.Responses.Single(x => x.AppResponseId == taskid);
             return View("Add_Task", task);
         }
