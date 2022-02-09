@@ -19,7 +19,7 @@
             <br />
 
             <label asp-for="Quadrant">Quadrant: </label>
-            <select>
+            <select asp-for="Quadrant">
                 <option value="">Select</option>
                 <option value="Quadrant I">Quadrant 1</option>
                 <option value="Quadrant II">Quadrant 2</option>
@@ -30,7 +30,7 @@
             <br />
 
             <label asp-for="Category">Category: </label>
-            <select>
+            <select asp-for="Category">
                 <option value="">Select</option>
                 @foreach (Category C in ViewBag.Categories)
                 {
@@ -40,7 +40,7 @@
             <br />
 
             <label asp-for="Completed">Completed Task? </label>
-            <select>
+            <select asp-for="Completed">
                 <option value="">Select</option>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
